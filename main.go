@@ -182,7 +182,7 @@ func runServer(addr, phonePath string) {
 		err = p.WriteJSON(Msg{
 			Type: "proxy_start",
 			ID:   proxyID,
-			URL:  "/ws",
+			URL:  r.URL.RequestURI(),
 		})
 		writeMu.Unlock()
 		if err != nil {
